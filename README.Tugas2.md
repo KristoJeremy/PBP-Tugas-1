@@ -11,5 +11,5 @@ NPM : 2106633310
 Link: https://pbptugas2kristo.herokuapp.com/katalog/
 
 ## Bagan request client dan web app django
-![My Image](client req)
+![My Image](client req.png)
 
