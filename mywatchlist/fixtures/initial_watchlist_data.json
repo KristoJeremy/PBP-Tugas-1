@@ -1,0 +1,113 @@
+[
+    {
+        "model": "mywatchlist.watchlistitems",
+        "pk": 1,
+        "fields": {
+            "movie_watched": "Yes",
+            "movie_title": "The Green Mile",
+            "movie_rating": 8.6,
+            "movie_release_date": "December 16, 1999",
+            "movie_review": "The Green Mile is a masterwork. This is film as art, at it's very best. The depth of the cast is extraordinary, with all of the players delivering excellent performances."
+        }
+    },
+    {
+        "model": "mywatchlist.watchlistitems",
+        "pk": 2,
+        "fields": {
+            "movie_watched": "Yes",
+            "movie_title": "American Pie",
+            "movie_rating": 7.0,
+            "movie_release_date": "July 9, 1999",
+            "movie_review": "American Pie is a fairly good movie,with good humor and a funny storyline,its a total teenage movie but its better than average ones."
+        }
+    },
+    {
+        "model": "mywatchlist.watchlistitems",
+        "pk": 3,
+        "fields": {
+            "movie_watched": "Not yet",
+            "movie_title": "The Samaritan",
+            "movie_rating": 5.7,
+            "movie_release_date": "August 26, 2022",
+            "movie_review": "Really have no clue to the thinking behind movies like this, it's like watching a really bad live action cartoon,"
+        }
+    },
+    {
+        "model": "mywatchlist.watchlistitems",
+        "pk": 4,
+        "fields": {
+            "movie_watched": "Not yet",
+            "movie_title": "T-34",
+            "movie_rating": 9.5,
+            "movie_release_date": "January 1, 2019",
+            "movie_review": "Performances are amazing, production design is amazing, cinematography is amazing, editing, effects, and story is uber compelling."
+        }
+    },
+    {
+        "model": "mywatchlist.watchlistitems",
+        "pk": 5,
+        "fields": {
+            "movie_watched": "Not yet",
+            "movie_title": "The Pianist",
+            "movie_rating": 9.5,
+            "movie_release_date": "September 6, 2002",
+            "movie_review": "Man, I can not get this film out of my head. It is so rare that a movie can affect me the way 'The Pianst' did."
+        }
+    },
+    {
+        "model": "mywatchlist.watchlistitems",
+        "pk": 6,
+        "fields": {
+            "movie_watched": "Yes",
+            "movie_title": "Brothers",
+            "movie_rating": 8.0,
+            "movie_release_date": "June 1, 2010",
+            "movie_review": "Brothers is a decent movie showing the trauma both a soldier and his family face due to Tobey Maguire's 'job' as a marine."
+        }
+    },
+    {
+        "model": "mywatchlist.watchlistitems",
+        "pk": 7,
+        "fields": {
+            "movie_watched": "Yes",
+            "movie_title": "Begin Again",
+            "movie_rating": 8.5,
+            "movie_release_date": "June 27, 2014",
+            "movie_review": "This movie helped me get through a phase in a life and definitely helped me .love it yes it has its flows but whatever."
+        }
+    },
+    {
+        "model": "mywatchlist.watchlistitems",
+        "pk": 8,
+        "fields": {
+            "movie_watched": "Yes",
+            "movie_title": "Hesher",
+            "movie_rating": 8.3,
+            "movie_release_date": "May 13, 2011",
+            "movie_review": "Simply put, Hesher is an exploration of loss: a universal experience shared by the film's characters"
+        }
+    },
+    {
+        "model": "mywatchlist.watchlistitems",
+        "pk": 9,
+        "fields": {
+            "movie_watched": "Yes",
+            "movie_title": "Easy A",
+            "movie_rating": 8.0,
+            "movie_release_date": "September 17, 2010",
+            "movie_review": "What drew me to this film were the cast, on paper this was a great cast capable of great performances."
+        }
+    },
+    {
+        "model": "mywatchlist.watchlistitems",
+        "pk": 10,
+        "fields": {
+            "movie_watched": "Yes",
+            "movie_title": "Bad Boys II",
+            "movie_rating": 9.0,
+            "movie_release_date": "August 6, 2003",
+            "movie_review": "This movie kicked ass plain and simple."
+        }
+    }
+    
+]

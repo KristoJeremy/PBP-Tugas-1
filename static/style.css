@@ -1,0 +1,29 @@
+body{
+    background-color: #2e2e2e;
+    color: azure
+    ;
+}
+
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h3{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+th{
+    font-family: Arial, Helvetica, sans-serif;
+    border-left:solid black 1px;
+    border-top:solid black 1px;
+    border-top: none;
+    border-left: none;
+}
+
+table{
+    background-color: #4d4d4d;
+    border-collapse: separate;
+    border:solid black 1px;
+    border-radius:6px;
+}
+
