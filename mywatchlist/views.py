@@ -27,6 +27,7 @@ def show_watchlist(request):
     return render(request, "watchlist.html", context)
 
 def show_xml(request):
+    watchlist_data = WatchlistItems.objects.all()
     return HttpResponse(serializers.serialize("xml", watchlist_data), content_type="application/xml")
 
 def show_xml_by_id(request, id):
@@ -34,6 +35,7 @@ def show_xml_by_id(request, id):
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 
 def show_json(request):
+    watchlist_data = WatchlistItems.objects.all()
     return HttpResponse(serializers.serialize("json", watchlist_data), content_type="application/json")
 
 def show_json_by_id(request, id):
