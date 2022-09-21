@@ -1,6 +1,6 @@
 [
     {
-        "model": "mywatchlist.WatchlistItems",
+        "model": "mywatchlist.watchlistitems",
         "pk": 1,
         "fields": {
             "movie_watched": "Yes",
@@ -11,7 +11,7 @@
         }
     },
     {
-        "model": "mywatchlist.WatchlistItems",
+        "model": "mywatchlist.watchlistitems",
         "pk": 2,
         "fields": {
             "movie_watched": "Yes",
@@ -22,7 +22,7 @@
         }
     },
     {
-        "model": "mywatchlist.WatchlistItems",
+        "model": "mywatchlist.watchlistitems",
         "pk": 3,
         "fields": {
             "movie_watched": "Not yet",
@@ -33,7 +33,7 @@
         }
     },
     {
-        "model": "mywatchlist.WatchlistItems",
+        "model": "mywatchlist.watchlistitems",
         "pk": 4,
         "fields": {
             "movie_watched": "Not yet",
@@ -44,7 +44,7 @@
         }
     },
     {
-        "model": "mywatchlist.WatchlistItems",
+        "model": "mywatchlist.watchlistitems",
         "pk": 5,
         "fields": {
             "movie_watched": "Not yet",
@@ -55,7 +55,7 @@
         }
     },
     {
-        "model": "mywatchlist.WatchlistItems",
+        "model": "mywatchlist.watchlistitems",
         "pk": 6,
         "fields": {
             "movie_watched": "Yes",
@@ -66,7 +66,7 @@
         }
     },
     {
-        "model": "mywatchlist.WatchlistItems",
+        "model": "mywatchlist.watchlistitems",
         "pk": 7,
         "fields": {
             "movie_watched": "Yes",
@@ -77,7 +77,7 @@
         }
     },
     {
-        "model": "mywatchlist.WatchlistItems",
+        "model": "mywatchlist.watchlistitems",
         "pk": 8,
         "fields": {
             "movie_watched": "Yes",
@@ -88,7 +88,7 @@
         }
     },
     {
-        "model": "mywatchlist.WatchlistItems",
+        "model": "mywatchlist.watchlistitems",
         "pk": 9,
         "fields": {
             "movie_watched": "Yes",
@@ -99,7 +99,7 @@
         }
     },
     {
-        "model": "mywatchlist.WatchlistItems",
+        "model": "mywatchlist.watchlistitems",
         "pk": 10,
         "fields": {
             "movie_watched": "Yes",
