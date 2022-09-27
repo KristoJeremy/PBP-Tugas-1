@@ -57,8 +57,8 @@ def logout_user(request):
     return response
 
 def create_task(request):
+    form = TaskForm(request.POST)
     if request.method == "POST":
-        form = TaskForm(request.POST)
         if form.is_valid():
             title = form.cleaned_data["title"]
             description = form.cleaned_data["description"]
