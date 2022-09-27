@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    h1 {text-align: center;}
+    h3 {text-align: center;}
+    table {align-self: center;}
+    #container{
+        text-align: center;
+    }
+</style>
+
+
+<h1>Todolist</h3>
+
+<h3>Username : {{user.username}} </h4>
+
+<table class="center">
+    <tr>
+    <th>Date Create</th>
+    <th>Task Title</th>
+    <th>Task Description</th>
+    </tr>
+    {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
+    {% for task in list_task %}
+        <tr>
+            <th>{{task.date}}</th>
+            <th>{{task.title}}</th>
+            <th>{{task.description}}</th>
+        </tr>
+    {% endfor %}
+</table>
+
+<h3>Sesi terakhir login: {{ last_login }}</h5>
+<div id="container">
+    <button>
+        <a href="{% url 'todolist:create_task' %}">Tambah Task Baru</a>
+    </button>
+    <button>
+        <a href="{% url 'todolist:logout' %}">Logout</a>
+    </button>
+</div>
+
+{% endblock content %}
