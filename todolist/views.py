@@ -12,10 +12,10 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from todolist.forms import TaskForm
 
-@login_required(login_url='/login/')
+@login_required(login_url='/todolist/login/')
 
 def show_task(request):
-    data_todolist = Task.objects.all()
+    data_todolist = Task.objects.filter(user=request.user)
     context = {
         'list_task': data_todolist,
         'last_login': request.COOKIES['last_login']
@@ -57,8 +57,8 @@ def logout_user(request):
     return response
 
 def create_task(request):
-    form = TaskForm(request.POST or None)
     if request.method == "POST":
+        form = TaskForm(request.POST)
         if form.is_valid():
             title = form.cleaned_data["title"]
             description = form.cleaned_data["description"]
