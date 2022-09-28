@@ -67,3 +67,14 @@ def create_task(request):
         else :
             form = TaskForm()
     return render(request, 'createtask.html', {'form':form})
+
+def finished_task(request,id):
+    task = Task.objects.get(id = id)
+    task.is_finished = not(task.is_finished)
+    task.save()
+    return redirect('todolist:show_task')
+
+def delete_task(request,id):
+    task = Task.objects.get(id = id)
+    task.delete()
+    return redirect('todolist:show_task')

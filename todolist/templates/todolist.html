@@ -18,16 +18,34 @@
 
 <table class="center">
     <tr>
-    <th>Date Create</th>
-    <th>Task Title</th>
-    <th>Task Description</th>
+    <th>Date</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th>Finished</th>
+    <th>Delete</th>
     </tr>
     {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
     {% for task in list_task %}
         <tr>
-            <th>{{task.date}}</th>
-            <th>{{task.title}}</th>
-            <th>{{task.description}}</th>
+            <td>{{task.date}}</td>
+            <td>{{task.title}}</td>
+            <td>{{task.description}}</td>
+            {% if task.is_finished %}
+                <td>Finished</td> 
+            {% else %}
+                <td>Not Finished</td>
+            {% endif %}
+            <td>
+                <button>
+                    <a href="{% url 'todolist:finished_task' task.id %}">Finished</a>
+                </button>
+            </td>
+            <td>
+                <button>
+                    <a href="{% url 'todolist:delete_task' task.id %}">Delete</a>
+                </button>
+            </td>
         </tr>
     {% endfor %}
 </table>
