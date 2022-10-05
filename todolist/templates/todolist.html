@@ -2,62 +2,46 @@
 
 {% block content %}
 
-<style>
-    h1 {text-align: center;}
-    h3 {text-align: center;}
-    table {align-self: center;}
-    #container{
-        text-align: center;
-    }
-</style>
-
-
-<h1>Todolist</h3>
-
-<h3>Username : {{user.username}} </h4>
-
-<table class="center">
-    <tr>
-    <th>Date</th>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Status</th>
-    <th>Finished</th>
-    <th>Delete</th>
-    </tr>
-    {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
-    {% for task in list_task %}
-        <tr>
-            <td>{{task.date}}</td>
-            <td>{{task.title}}</td>
-            <td>{{task.description}}</td>
-            {% if task.is_finished %}
-                <td>Finished</td> 
-            {% else %}
-                <td>Not Finished</td>
-            {% endif %}
-            <td>
-                <button>
-                    <a href="{% url 'todolist:finished_task' task.id %}">Finished</a>
+<div class="container p-4 h-100">
+    <div class="title mb-4">
+        <h2>Task List to Do</h2>
+        <p>Username : {{user.username}}</p>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            {% for task in list_task %}
+            <div class="card text-white bg-primary mb-3 card text-center">
+                    <div class="card-body mb-4">
+                        <h4 class="card-title">{{task.title}}</h4>
+                        <p> Date : {{task.date}} </p>
+                        <p> {{task.description}} </p>
+                        {% if task.is_finished %}
+                            <h5>Finished</h5>
+                        {% else %}
+                            <h5>Not Finished</h5>
+                        {% endif %}
+                        <button class="btn btn-light">
+                            <a href="{% url 'todolist:finished_task' task.id %}">Finished</a>
+                        </button>
+                        <button class="btn btn-light">
+                            <a href="{% url 'todolist:delete_task' task.id %}">Delete</a>
+                        </button>
+                    </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="title mt-6">
+            <h5>Sesi terakhir login : {{ last_login }}</h5>
+            <div>
+                <button class="btn btn-outline-primary">
+                    <a href="{% url 'todolist:create_task' %}">Tambah Task Baru</a>
                 </button>
-            </td>
-            <td>
-                <button>
-                    <a href="{% url 'todolist:delete_task' task.id %}">Delete</a>
+                <button class="btn btn-outline-primary">
+                    <a href="{% url 'todolist:logout' %}">Logout</a>
                 </button>
-            </td>
-        </tr>
-    {% endfor %}
-</table>
-
-<h3>Sesi terakhir login: {{ last_login }}</h5>
-<div id="container">
-    <button>
-        <a href="{% url 'todolist:create_task' %}">Tambah Task Baru</a>
-    </button>
-    <button>
-        <a href="{% url 'todolist:logout' %}">Logout</a>
-    </button>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock content %}
