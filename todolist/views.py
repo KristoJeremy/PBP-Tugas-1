@@ -1,5 +1,5 @@
 import datetime
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 from django.core import serializers
 from django.shortcuts import render
 from todolist.models import Task
@@ -78,3 +78,20 @@ def delete_task(request,id):
     task = Task.objects.get(id = id)
     task.delete()
     return redirect('todolist:show_task')
+
+def get_todolist_json (request):
+    tasks = Task.objects.filter(user=request.user)
+    task_serializers = serializers.serialize('json', tasks)
+    return HttpResponse(task_serializers)
+
+def add_todolist_ajax (request):
+    if request.method == 'POST':
+        title = request.POST.get("title")
+        description = request.POST.get("description")
+
+        new_task = Task(user=request.user, title=title, description=description, date=datetime.datetime.now(), is_finished=False)
+        new_task.save()
+
+        return HttpResponse(b"CREATED", status=201)
+    return HttpResponseNotFound()
+

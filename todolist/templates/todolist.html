@@ -7,41 +7,97 @@
         <h2>Task List to Do</h2>
         <p>Username : {{user.username}}</p>
     </div>
-    <div class="row">
-        <div class="col-md-4">
-            {% for task in list_task %}
-            <div class="card text-white bg-primary mb-3 card text-center">
-                    <div class="card-body mb-4">
-                        <h4 class="card-title">{{task.title}}</h4>
-                        <p> Date : {{task.date}} </p>
-                        <p> {{task.description}} </p>
-                        {% if task.is_finished %}
-                            <h5>Finished</h5>
-                        {% else %}
-                            <h5>Not Finished</h5>
-                        {% endif %}
-                        <button class="btn btn-light">
-                            <a href="{% url 'todolist:finished_task' task.id %}">Finished</a>
-                        </button>
-                        <button class="btn btn-light">
-                            <a href="{% url 'todolist:delete_task' task.id %}">Delete</a>
-                        </button>
-                    </div>
+
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">
+        Add task
+    </button>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-4" id="exampleModalLabel">Add your new task</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            {% endfor %}
+            <div class="modal-body">
+            <form id="form">
+                {% csrf_token %}
+                <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Title:</label>
+                <input type="text" class="form-control" id="field_title" name="title">
+                </div>
+                <div class="mb-3">
+                <label for="message-text" class="col-form-label">Description:</label>
+                <textarea class="form-control" id="field_desc" name="description"></textarea>
+                </div>
+            </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="addTaskButton" data-bs-dismiss="modal">Add</button>
+            </div>
         </div>
-        <div class="title mt-6">
-            <h5>Sesi terakhir login : {{ last_login }}</h5>
-            <div>
-                <button class="btn btn-outline-primary">
-                    <a href="{% url 'todolist:create_task' %}">Tambah Task Baru</a>
-                </button>
-                <button class="btn btn-outline-primary">
-                    <a href="{% url 'todolist:logout' %}">Logout</a>
-                </button>
-            </div>
         </div>
     </div>
+    <div class="title mt-6">
+        <div>
+            <div class="container mx-auto mt-4 ">
+                <div class="row" id="content-data">
+                </div>
+            </div>
+            <button class="btn btn-outline-primary">
+                <a href="{% url 'todolist:logout' %}">Logout</a>
+            </button>
+        </div>
+    </div>
+
 </div>
+
+
+{% block scripts %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+$(document).ready(function(){
+    refreshContent();
+});
+
+async function getTodolist(){
+    return fetch("{% url 'todolist:get_todolist_json' %}").then((res) => res.json())
+}
+
+async function refreshContent(){
+    document.getElementById("content-data").innerHTML = ""
+    const todolist = await getTodolist()
+    let htmlString = ``
+    todolist.forEach((item) => {
+        htmlString += `<div class="col-md-4">
+      <div class="card text-white bg-primary mb-3 card text-center">
+        <div class="card-body mb-4">
+          <h4 class="card-title">${item.fields.title}</h4>
+          <p>${item.fields.date}</p>
+          <p>${item.fields.description}</p>  
+        </div>
+      </div>
+    </div>` 
+        })
+    document.getElementById("content-data").innerHTML = htmlString
+}
+
+function addTask() {
+    fetch("{% url 'todolist:add_todolist_ajax' %}", {
+        method: "POST",
+        body: new FormData(document.querySelector('#form'))
+    }).then(refreshContent)
+    return false
+}
+
+document.getElementById("addTaskButton").onclick = addTask
+refreshContent()
+
+</script>
+
+{% endblock scripts %}
 
 {% endblock content %}
