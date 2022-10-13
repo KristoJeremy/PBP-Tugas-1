@@ -89,7 +89,7 @@ def add_todolist_ajax (request):
         title = request.POST.get("title")
         description = request.POST.get("description")
 
-        new_task = Task(user=request.user, title=title, description=description, date=datetime.datetime.now(), is_finished=False)
+        new_task = Task(user=request.user, title=title, description=description, date=datetime.datetime.now())
         new_task.save()
 
         return HttpResponse(b"CREATED", status=201)

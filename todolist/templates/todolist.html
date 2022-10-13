@@ -77,7 +77,15 @@ async function refreshContent(){
         <div class="card-body mb-4">
           <h4 class="card-title">${item.fields.title}</h4>
           <p>${item.fields.date}</p>
-          <p>${item.fields.description}</p>  
+          <p>${item.fields.description}</p>
+          {% if task.is_finished %}
+          <p>Finished</p>
+          {% else %}
+          <p>Not Finished</p>
+          {% endif %}
+          
+          <button class="btn btn-light" onclick="deleteTask(${item.pk})">Delete</button>
+          
         </div>
       </div>
     </div>` 
